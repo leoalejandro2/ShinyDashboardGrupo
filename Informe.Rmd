@@ -1,0 +1,137 @@
+---
+title: "ANALIZANDO ESTIMADORES RESPECTO AL EMPLEO USANDO LA ENCUESTA HOGARES "
+author: 
+- "Integrantes: Leo ALejandro Chirirno - Alejandro Cardenas Soria - Sergio Colque"
+date: "2023-06-07"
+output: html_document
+
+bibliography: Bib.bib
+csl: apa.csl
+---
+
+\pagebreak
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## INTRODUCCIÓN.
+Las encuestas de hogares por muestreo constituyen una manera práctica de obtener datos actualizados sobre las condiciones y tendencias sociales, el comportamiento socioeconómico de los hogares, el acceso a los servicios básicos de bienestar y el efecto de los programas de bienestar.[@cepal1979medicion]
+
+## OBJETIVOS
+El objetivo del proyecto es conocer las principales caracteristicas de la situacion laboral a traves de la encuesta hogares usando indicadores.
+
+## MOTIVACIÓN
+La motivación para realizar este proyecto es exponer la realidad en cuanto a la oferta y demanda laboral que existe en el país.
+
+## MARCO TEÓRICO 
+El ingreso laboral es el conjunto de partidas monetarias y en especie percibidas en forma regular por los hogares como unidad o por sus integrantes a título personal, a intervalos anuales o más frecuentes, excluyendo ganancias
+inesperadas, irregulares o percibidas típicamente por una sola vez. [@brun2019medicion]
+El ingreso laboral puede ser usado para elaborar indicadores como "La Tasa Global de Participacion" por nombrar alguno. El indicador es el dato numérico, resultado de un proceso que cuantifica científicamente una característica de una muestra. [@sabalain2009introduccion]
+
+## DESCRIPCIÓN DE LA BASE DE DATOS
+
+- ylab: Ingreso laboral (Bs/Mes) (continua).
+- desocupado: Población desocupada, medida booleana : 1 = sí, 0 = no (discreta).
+- depto: Medida que indica a que departamento de Bolivia pertence, esta medida va del 1 al 9 (discreta).
+- pea: Poblacion Economicamente Activa, medida booleana : 1 = sí, 0 = no (discreta).
+- pet: Poblacion en edad de trabajar 14 o más años, medida booleana : 1 = sí, 0 = no (discreta).
+- pei: Poblacion Economicamente Inactiva, medida booleana : 1 = sí, 0 = no (discreta).
+- s01a_02: El sexo de la persona encuestada, 1 = Hombre, 2 = Mujer (discreta).
+- s01a_03: Cuantos años cumplidos tiene la persona encuestada (discreta).
+
+## METODOLOGIA
+
+### 1. Indicadores y fichas de Indicadores
+
+#### Tasa Global de Participación (TGP)
+
+Definición. Relación de la Población Económicamente Activa (PEA) entre la Población en Edad de Trabajar (PET) que mide la proporción de participación en el mercado laboral respecto al total de población que se encuentra en edad de trabajo. Población Económicamente Activa (PEA) conjunto de personas de 14 años que, en la semana de referencia, estaban ocupadas o que estaban desocupadas, es decir, no estaban ocupadas, buscaban trabajo activamente y estaban disponibles para trabajar. Incluye también, como ocupados, a quienes durante la semana de referencia estuvieron temporalmente ausentes de su empleo por razones circunstanciales.
+Método de cálculo.
+$$TGP_{\geq 14}=\dfrac{PEA_{\geq 14}}{PET_{\geq 14}}*100$$
+Donde:
+
+- $TGP_{\geq 14}$ = Tasa global de participación (para 14 o más años de edad)
+- $PEA_{\geq 14}$= Población económicamente activa (14 o más años de edad)
+- $PET_{\geq 14}$= Población en edad de trabajar (14 o más años de edad)
+
+#### Tasa de Desocupación (TD)
+
+Definición. Relación porcentual de la Población Desocupada de (PD) respecto a la Población Económicamente Activa (PEA) que mide el desempeño del mercado laboral y la economía en su conjunto. Asimismo, mide la utilización de la mano de obra en el mercado laboral y el fracaso de encontrar un trabajo. Población Desocupada (PD) son las personas de 14 años o más que, en la semana de referencia: no estaban ocupadas, llevaron a cabo actividades de búsqueda de trabajo en las últimas cuatro (4) semanas y estaban disponibles para trabajar. Población Económicamente Activa (PEA) conjunto de personas de 14 años que, en la semana de referencia, estaban ocupadas o que estaban desocupadas, es decir, no estaban ocupadas, buscaban trabajo activamente y estaban disponibles para trabajar. Incluye también, como ocupados, a quienes durante la semana de referencia estuvieron temporalmente ausentes de su empleo por razones circunstanciales.
+Método de cálculo.
+$$TD_{\geq 14}=\dfrac{Desocupado_{\geq 14}}{PEA_{\geq 14}}*100$$
+Donde:
+
+- $TD_{\geq 14}$ = Tasa de desocupación (para 14 o más años de edad)
+- $Desocupado_{\geq 14}$= Población Desocupada (14 o más años de edad) 
+- $PEA_{\geq 14}$= Población económicamente activa (14 o más años de edad)
+
+#### Tasa de Ocupación (TO)
+
+Definición. Relación porcentual de la Población ocupada de (PA) respecto a la Población Económicamente Activa (PEA) que mide el desempeño del mercado laboral y la economía en su conjunto. Población Ocupada (ocupado) son las personas de 14 años o más que, en la semana de referencia: estaban ocupadas, llevaron a cabo actividades de trabajo en las últimas cuatro (4) semanas . Población Económicamente Activa (PEA) conjunto de personas de 14 años que, en la semana de referencia, estaban ocupadas o que estaban desocupadas, es decir, no estaban ocupadas, buscaban trabajo activamente y estaban disponibles para trabajar. Incluye también, como ocupados, a quienes durante la semana de referencia estuvieron temporalmente ausentes de su empleo por razones circunstanciales.
+Método de cálculo.
+$$TO_{\geq 14}=\dfrac{Ocupado_{\geq 14}}{PEA_{\geq 14}}*100$$
+Donde:
+
+- $TO_{\geq 14}$ = Tasa de ocupación  (para 14 o más años de edad)
+- $Ocupado_{\geq 14}$= Población ocupada (14 o más años de edad) 
+- $PEA_{\geq 14}$= Población económicamente activa (14 o más años de edad)
+
+#### Tasa de Censatía (TC)
+
+Definición. Relación porcentual de la Población Cesante de (Censate) respecto a la Población Económicamente Activa (PEA) que mide el desempeño del mercado laboral y la economía en su conjunto. Población Cesante (cesante) son las personas de 14 años o más que, son desocupados pero que han tenido un trabajo previamente como las que buscan trabajo por primera vez.. Población Económicamente Activa (PEA) conjunto de personas de 14 años que, en la semana de referencia, estaban ocupadas o que estaban desocupadas, es decir, no estaban ocupadas, buscaban trabajo activamente y estaban disponibles para trabajar. Incluye también, como ocupados, a quienes durante la semana de referencia estuvieron temporalmente ausentes de su empleo por razones circunstanciales.
+Método de cálculo.
+$$TC_{\geq 14}=\dfrac{Cesante_{\geq 14}}{PEA_{\geq 14}}*100$$
+Donde:
+
+- $TC_{\geq 14}$ = Tasa de cesantía (para 14 o más años de edad)
+- $Cesante_{\geq 14}$= Población Cesante (14 o más años de edad) 
+- $PEA_{\geq 14}$= Población económicamente activa (14 o más años de edad)
+
+#### Tasa de Aspirantes (TA)
+
+Definición. Relación porcentual de la Población Desocupada Aspirante (aspirante) respecto a la Población Económicamente Activa (PEA) que mide el desempeño del mercado laboral y la economía en su conjunto. Población Desocupada Aspirante (aspirante) son las personas de 14 años o más que, en la semana de referencia: buscan trabajo por primera vez. Población Económicamente Activa (PEA) conjunto de personas de 14 años que, en la semana de referencia, estaban ocupadas o que estaban desocupadas, es decir, no estaban ocupadas, buscaban trabajo activamente y estaban disponibles para trabajar. Incluye también, como ocupados, a quienes durante la semana de referencia estuvieron temporalmente ausentes de su empleo por razones circunstanciales.
+Método de cálculo.
+$$TA_{\geq 14}=\dfrac{Aspiramente_{\geq 14}}{PEA_{\geq 14}}*100$$
+Donde:
+
+- $TA_{\geq 14}$ = Tasa de aspirantes (para 14 o más años de edad)
+- $Cesante_{\geq 14}$= Población Desocupada Aspirante (14 o más años de edad) 
+- $PEA_{\geq 14}$= Población económicamente activa (14 o más años de edad)
+
+#### Tasa de Inactividad (TI)
+
+Definición. Es el porcentaje de la población económicamente inactiva (PEI) o no económicamente activa, con respecto a la población en edad de trabajar (14 años y más), durante un determinado periodo. Se mide a través de la relación de la Población Económicamente Inactiva (PEI) y la Población en Edad de Trabajar (PET). 
+Método de cálculo.
+$$TI_{\geq 14}=\dfrac{PEI_{\geq 14}}{PET_{\geq 14}}*100$$
+
+Donde:
+
+- $TI_{\geq 14}$ = Tasa global de inactividad (para 14 o más años de edad)
+- $PEA_{\geq 14}$= Población económicamente inactiva (14 o más años de edad)
+- $PET_{\geq 14}$= Población en edad de trabajar (14 o más años de edad)
+
+#### Indice de Carga Económica (ICE)
+
+Definición. Representa la carga económica que debe asimilar una persona económicamente activa en favor de una persona económicamente inactiva, es decir, la relación entre actividad y no actividad. Se mide a través de la relación de la Población Económicamente Inactiva (PEI) y la Población Económicamente Activa (PEA). Población Económicamente inactiva (PEI) conjunto de personas con 14 años o más que al momento de la encuesta no han participado en el mercado laboral en la semana de referencia o, en otros términos, sin ocupación ni buscan activamente una ocupación. Población Económicamente Activa (PEA) conjunto de personas de 14 años que, en la semana de referencia, estaban ocupadas o que estaban desocupadas, es decir, no estaban ocupadas, buscaban trabajo activamente y estaban disponibles para trabajar. Incluye también, como ocupados, a quienes durante la semana de referencia estuvieron temporalmente ausentes de su empleo por razones circunstanciales.
+Método de cálculo.
+$$ICE_{\geq 14}=\dfrac{PEI_{\geq 14}}{PEA_{\geq 14}}*100$$
+Donde:
+
+- $ICE_{\geq 14}$= Índice de Carga Económica (para 14 o más años de edad)
+- $PEI_{\geq 14}$= Población económicamente inactiva (14 o más años de edad) 
+- $PEA_{\geq 14}$= Población económicamente activa (14 o más años de edad)
+
+
+### 2. Tratamiento sobre la base de datos
+Se usará la base de datos de la Encuesta Hogares 2021 del área de personas para poder obtener las variables necesarias y asi sacar los indicadores ya mencionados.
+La base de datos tiene que ser filtrada para los encuestados que tienen 14 años o más. Además que será desagregada por departamentos, área y sexo.
+
+**EH2021_p %>% filter(s01a_03>=14) %>% group_by(depto)**
+
+
+
+### 3. Visualizacion de la información
+### 4. Armado de la plataforma
+
+## Referencias
