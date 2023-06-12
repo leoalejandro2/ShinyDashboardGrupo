@@ -1,0 +1,41 @@
+---
+title: "Ficha tecnica del Indicador"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tasa de cesantia
+
+::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 10px;"}
+<div>
+
+### 1. Definicion
+
+Es la relación porcentual de la Población Cesante de (Censate) respecto a la Población Económicamente Activa (PEA) de 14 a 60 años.
+
+### 2. Descripcion del indicador
+
+El indicador mide el desempeño del mercado laboral y la economía en su conjunto. La población Cesante (cesante) son las personas de 14 años o más que, son desocupados pero que han tenido un trabajo previamente como las que buscan trabajo por primera vez.
+
+</div>
+
+<div>
+
+### 3. Formula de calculo
+
+$$TC_{\geq 14}=\dfrac{Cesante_{\geq 14}}{PEA_{\geq 14}}*100$$ *Donde*:\
+$TC_{\geq 14}$ = Tasa de cesantía (para 14 o más años de edad) $Cesante_{\geq 14}$= Población Cesante (14 o más años de edad) $PEA_{\geq 14}$= Población económicamente activa (14 o más años de edad)
+
+### 4. Unidad de medida
+
+Porcentaje
+
+### 5. Interpretacion del indicador
+
+Porcentaje de la oferta laboral que se encuentra sin empleo y que trabajaron previamente
+
+</div>
+:::

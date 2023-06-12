@@ -1,0 +1,49 @@
+---
+title: "Ficha tecnica del Indicador"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tasa de inactividad
+
+::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 10px;"}
+<div>
+
+### 1. Definicion
+
+Es la relación de la Población Económicamente Inactiva (PEI) y la Población en Edad de Trabajar (PET).
+
+### 2. Descripcion del indicador
+
+Es el porcentaje de la población económicamente inactiva (PEI) o no económicamente activa, con respecto a la población en edad de trabajar (14 años y más), durante un determinado periodo.
+
+</div>
+
+<div>
+
+### 3. Formula de calculo
+
+$$TI_{\geq 14}=\dfrac{PEI_{\geq 14}}{PET_{\geq 14}}*100$$
+
+*Donde:*
+
+$TI_{\geq 14}$ = Tasa global de inactividad (para 14 o más años de edad)
+
+$PEA_{\geq 14}$= Población económicamente inactiva (14 o más años de edad)
+
+$PET_{\geq 14}$= Población en edad de trabajar (14 o más años de edad)
+
+### 4. Unidad de medida
+
+Porcentaje
+
+### 5. Interpretacion del indicador
+
+Porcentaje de personas que se encuentra en edad de trabajar, y no desean hacerlo
+
+</div>
+:::
+

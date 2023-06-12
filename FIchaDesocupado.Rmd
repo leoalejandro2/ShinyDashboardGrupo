@@ -1,0 +1,48 @@
+---
+title: "Ficha tecnica del Indicador"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tasa de desocupacion
+
+::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 10px;"}
+<div>
+
+### 1. Definicion
+
+Relación porcentual de la Población Desocupada de (PD) respecto a la Población Económicamente Activa (PEA) de 14 a 60 años.
+
+### 2. Descripcion del indicador
+
+Mide el desempeño del mercado laboral y la economía en su conjunto. Asimismo, mide la utilización de la mano de obra en el mercado laboral y el fracaso de encontrar un trabajo. La población Desocupada (PD) son las personas de 14 años o más que, en la semana de referencia: no estaban ocupadas, llevaron a cabo actividades de búsqueda de trabajo en las últimas cuatro (4) semanas y estaban disponibles para trabajar. La población Económicamente Activa (PEA) conjunto de personas de 14 años que, en la semana de referencia, estaban ocupadas o que estaban desocupadas, es decir, no estaban ocupadas, buscaban trabajo activamente y estaban disponibles para trabajar. Incluye también, como ocupados, a quienes durante la semana de referencia estuvieron temporalmente ausentes de su empleo por razones circunstanciales.
+
+</div>
+
+<div>
+
+### 3. Formula de calculo
+
+$$TD_{\geq 14}=\dfrac{Desocupado_{\geq 14}}{PEA_{\geq 14}}*100$$
+
+*Donde:*
+
+$TD_{\geq 14}$ = Tasa de desocupación (para 14 o más años de edad)
+
+$Desocupado_{\geq 14}$= Población Desocupada (14 o más años de edad)
+
+$PEA_{\geq 14}$= Población económicamente activa (14 o más años de edad)
+
+### 4. Unidad de medida
+
+Porcentaje
+
+### 5. Interpretacion del indicador
+
+Porcentaje de las personas en edad laboral que se encuentra sin empleo.
+
+</div>
+:::
