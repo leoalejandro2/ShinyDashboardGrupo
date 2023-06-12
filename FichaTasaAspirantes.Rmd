@@ -1,0 +1,59 @@
+---
+title: "Ficha tecnica del Indicador"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tasa de aspirantes
+
+::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 10px;"}
+<div>
+
+### 1. Definicion
+
+Relación porcentual de la Población Desocupada Aspirante (aspirante)
+respecto a la Población Económicamente Activa (PEA) de 14 a 60 años.
+
+### 2. Descripcion del indicador
+
+El indicador mide el desempeño del mercado laboral y la economía en su
+conjunto. Población Desocupada Aspirante (aspirante) son las personas de
+14 años o más que, en la semana de referencia: buscan trabajo por
+primera vez. Población Económicamente Activa (PEA) conjunto de personas
+de 14 años a más que, en la semana de referencia, estaban ocupadas o que
+estaban desocupadas, es decir, no estaban ocupadas, buscaban trabajo
+activamente y estaban disponibles para trabajar. Incluye también, como
+ocupados, a quienes durante la semana de referencia estuvieron
+temporalmente ausentes de su empleo por razones circunstanciales.
+
+</div>
+
+<div>
+
+### 3. Formula de calculo
+
+$$TA_{\geq 14}=\dfrac{Aspirante_{\geq 14}}{PEA_{\geq 14}}*100$$ *Donde:*
+
+$TA_{\geq 14}$ = Tasa de aspirantes (para 14 o más años de edad)
+
+$Cesante_{\geq 14}$= Población Desocupada Aspirante (14 o más años de
+edad) $PEA_{\geq 14}$= Población económicamente activa (14 o más años de
+edad)
+
+### 4. Unidad de medida
+
+Porcentaje
+
+### 5. Interpretacion del indicador
+
+Porcentaje de la oferta laboral que se encuentra sin empleo y buscan uno
+por primera vez.
+
+</div>
+:::
