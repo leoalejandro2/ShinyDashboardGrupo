@@ -4,9 +4,6 @@ author:
 - "Integrantes: Leo ALejandro Chirirno - Alejandro Cardenas Soria - Sergio Colque"
 date: "2023-06-07"
 output: html_document
-
-bibliography: Bib.bib
-csl: apa.csl
 ---
 
 \pagebreak

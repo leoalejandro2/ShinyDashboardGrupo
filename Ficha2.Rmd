@@ -1,0 +1,40 @@
+---
+title: "Ficha tecnica del Indicador"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Proporcion de jovenes(entre 15 y 24 años) que no cursan estudios, no estan empleados ni reciben capacitacion
+
+:::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 10px;"}
+
+::: {}
+### 1. Definicion
+Proporción de jóvenes entre 15 y 24 años que no tienen empleo ni han realizado estudios o formación (reglada o no reglada) en las últimas cuatro semanas respecto al total de jóvenes entre 15 y 24 años.
+
+### 2. Objetivo
+Promover el crecimiento económico sostenido, inclusivo y sostenible, el empleo pleno y productivo y el trabajo decente para todos
+
+
+
+:::
+
+::: {}
+
+### 3. Formula de calculo
+
+$$PPNINI_{15-24}^t=\frac{PNINI_{15-24}^t}{P_{15-24}^t}*100$$
+*Donde:*
+
+$PNINI_{15-24}^t:$ Población entre 15 y 24 años que no tiene empleo ni ha realizado estudios o formación (reglada o no reglada) en las últimas cuatro semanas en el año $t$
+
+$P_{15-24}^t:$ población entre 15 y 24 años en el año $t$ teniendo en cuenta que cada una de estas poblaciones se calcula como la media aritmética de los cuatro trimestres del año
+
+### 4. Unidad de medida
+Porcentaje
+:::
+
+::::
