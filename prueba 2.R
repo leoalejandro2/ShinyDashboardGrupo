@@ -6,9 +6,12 @@ library(ggplot2)
 library(haven)
 library(labelled)
 library(sparklyr)
-install.packages("devtools")
+
 
 load("Data/EH2021.RData")
+
+write.csv(eh21p,"Data/eh21p.csv",row.names=TRUE)
+
 
 eh21p=eh21p %>% 
   mutate(nini=(((s03a_04==2 & s03a_05!=13)) & s04a_01==2))
@@ -19,7 +22,19 @@ eh21p %>% filter(s01a_03>=14,s01a_03<=24) %>% group_by(depto) %>% summarise(nini
 eh21p=eh21p %>% 
   mutate(hrsSem=(s04b_16aa*s04b_15),subocupado=hrsSem<=40)
 
+##########################Spark ##############################
+conf=spark_config()
 
+conf$`sparklir.shell.drive-memory`="8G"
+conf$spark.memory.fraction=0.8
+
+sc=spark_connect(master="local",
+                 config = conf)
+
+sp_eh21p= spark_read_csv(sc,
+                         name = "eh21p",
+                         path = "data/eh21p.csv")
+##############################################################
 header=dashboardHeader(title = "Dashboard Proyecto")
 
 sidebar=dashboardSidebar(
@@ -380,24 +395,18 @@ server <- function(input, output) {
   ######################Indicador 1###########################
   output$tabp11=renderTable({
     
-    d1=eh21p %>% filter(s01a_03>=14 & s01a_03<=60) %>% group_by(depto) %>% 
-      summarise(td=sum(desocupado)/sum(pea)*100)
-    d1$depto=factor(d1$depto,c(1:9),unique(to_factor(d1$depto)))
-    cbind(nro=1:9,d1)
+    d1=sp_eh21p %>% filter(s01a_03>=14 & s01a_03<=60) %>% group_by(depto) %>% 
+      summarise(td=sum(desocupado,na.rm = TRUE)/sum(pea,na.rm = TRUE)*100)
   })
   
   output$tabp12=renderTable({
-    d1=eh21p %>% filter(s01a_03>=14 & s01a_03<=60) %>% group_by(area) %>% 
-      summarise(td=sum(desocupado)/sum(pea)*100)
-    d1$area=factor(d1$area,c(1:2),unique(to_factor(d1$area)))
-    cbind(nro=1:2,d1)
+    d1=sp_eh21p %>% filter(s01a_03>=14 & s01a_03<=60) %>% group_by(area) %>% 
+      summarise(td=sum(desocupado,na.rm = TRUE)/sum(pea,na.rm = TRUE)*100)
   })
   
   output$tabp13=renderTable({
-    d1=eh21p %>% filter(s01a_03>=14 & s01a_03<=60) %>% group_by(s01a_02) %>% 
-      summarise(td=sum(desocupado)/sum(pea)*100)
-    d1$s01a_02=factor(d1$s01a_02,c(1:2),unique(to_factor(d1$s01a_02)))
-    cbind(nro=1:2,d1)
+    d1=sp_eh21p %>% filter(s01a_03>=14 & s01a_03<=60) %>% group_by(s01a_02) %>% 
+      summarise(td=sum(desocupado,na.rm = TRUE)/sum(pea,na.rm = TRUE)*100)
   })
   
   
@@ -641,24 +650,18 @@ server <- function(input, output) {
   ######################Indicador 7###########################
   output$tabp71=renderTable({
     
-    d7=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
-      summarise(tc=sum(cesante)/sum(pea)*100)
-    d7$depto=factor(d7$depto,c(1:9),unique(to_factor(d7$depto)))
-    cbind(nro=1:9,d7)
+    d7=sp_eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
+      summarise(tc=sum(cesante,na.rm = TRUE)/sum(pea,na.rm = TRUE)*100)
   })
   
   output$tabp72=renderTable({
-    d7=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
-      summarise(tc=sum(cesante)/sum(pea)*100)
-    d7$area=factor(d7$area,c(1:2),unique(to_factor(d7$area)))
-    cbind(nro=1:2,d7)
+    d7=sp_eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
+      summarise(tc=sum(cesante,na.rm = TRUE)/sum(pea,na.rm = TRUE)*100)
   })
   
   output$tabp73=renderTable({
-    d7=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>% 
-      summarise(tc=sum(cesante)/sum(pea)*100)
-    d7$s01a_02=factor(d7$s01a_02,c(1:2),unique(to_factor(d7$s01a_02)))
-    cbind(nro=1:2,d7)
+    d7=sp_eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>% 
+      summarise(tc=sum(cesante,na.rm = TRUE)/sum(pea,na.rm = TRUE)*100)
   })
   
   
@@ -814,3 +817,6 @@ server <- function(input, output) {
 
 
 shinyApp(ui, server)
+
+
+spark_disconnect(sc)
