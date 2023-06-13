@@ -1,0 +1,49 @@
+---
+title: "Ficha tecnica del Indicador"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tasa de subempleo
+
+:::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 10px;"}
+
+::: {}
+### 1. Definicion
+Es el porcentaje de la población subempleada entre la población económicamente activa. La población subempleada está compuesta por el subempleo visible y el invisible.
+
+
+### 2. Descripcion del indicador
+
+El indicador refleja la subutilización de mano de obra. El subempleo visible analiza a las personas que están dispuestas a trabajar más horas. Las horas de trabajo que cumplen son insuficientes en relación con una situación de empleo alternativo que esas personas desean desempeñar y para la que se encuentran disponibles (ILO, 2015). Mientras que el subempleo invisible muestra el número de personas que ganan menos que el salario mínimo
+
+:::
+
+::: {}
+
+### 3. Formula de calculo
+
+$$TS_{>=14}=\frac{PS_{>=14}}{PO_{>=14}}*100$$
+
+*Donde:*
+
+$TS_{>=14}:$  Tasa de subempleo para personas mayores a 14 años.
+
+$PS_{>=14}:$ Suma de la poblacion sun empleada para personas mayores a 14 años
+
+$PO_{>=14}:$ Numero de individuos que pertenecen a la poplacion ocupada para personas mayores a 14 años.
+
+### 4. Unidad de medida
+Porcentaje
+
+### 5. Interpretacion del indicador
+Porcentaje de personas que son subempleadas respecto a la población ocupada.
+
+
+
+:::
+
+::::

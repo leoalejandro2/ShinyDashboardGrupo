@@ -128,9 +128,19 @@ La base de datos tiene que ser filtrada para los encuestados que tienen 14 años
 
 **EH2021_p %>% filter(s01a_03>=14) %>% group_by(depto)**
 
-
+**No se utilizo el dise�o muestral**
 
 ### 3. Visualizacion de la información
+Se utilizo la libreria "ggplot2" para la realizacion de los graficos.
+
+Los graficos y las tablas se encuentran en el dashboard.
+
 ### 4. Armado de la plataforma
+
+Se uso las librerias shiny y shinydashboard para el armado de la plataforma.
+
+## Concluciones y recomendaciones 
+
+
 
 ## Referencias
