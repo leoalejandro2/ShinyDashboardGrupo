@@ -1,0 +1,52 @@
+---
+title: "Ficha tecnica del Indicador"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tasa de desempleo abierto
+
+:::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 10px;"}
+
+::: {}
+### 1. Definicion
+Es el porcentaje de la población abiertamente desempleada, entre la población económicamente activa de 14 a 60 años.
+
+### 2. Descripcion del indicador
+Es uno de los indicadores mayormente utilizados para monitorear el desempeño del mercado laboral.
+
+En épocas de reducción de actividad económica la tasa de desempleo será mayor. Por el contrario en épocas de bonanza económica la tasa será más baja.
+
+
+:::
+
+::: {}
+
+### 3. Formula de calculo
+
+$$TDA_{14-60}=\frac{PDA_{14-60}}{PEA_{14-60}}*100$$
+
+$$PEA_{14-16}=PO_{14-16}+PDA_{14-16}$$
+*Donde:*
+
+$TDA_{14-60}:$ Tasa de desempleo abierto de la población entre 14 y 60 años.
+
+$PEA_{14-60}:$ Población económicamente activa de 14 a 60 años de edad.
+
+$PDA_{14-60}:$ Población desempleada abierta de 14 a 60 años de edad.
+
+$PO_{14-60}:$  Población ocupada de 14 a 60 años de edad.
+
+### 4. Unidad de medida
+Porcentaje
+
+### 5. Interpretacion del indicador
+Porcentaje de la oferta laboral que se encuentra sin empleo
+
+
+:::
+
+::::

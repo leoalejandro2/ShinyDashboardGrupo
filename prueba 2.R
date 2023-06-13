@@ -95,20 +95,28 @@ body=dashboardBody(
     tabItem(tabName = "ind21",
             h2("Proporcion de jovenes(entre 15 y 24 años) que no cursan estudios, no estan empleados ni reciben capacitacion"),
             fluidRow(
-              tabBox(title = "Desagregacion",height = "400px",
+              tabBox(title = "Desagregacion",height = "500px",
                      tabPanel("Tab21", "Departamento", 
                               tableOutput("tabp21")),
                      tabPanel("Tab22", "Area", 
                               tableOutput("tabp22")),
                      tabPanel("Tab23", "Sexo", 
                               tableOutput("tabp23"))),
-              tabBox(title = "Desagregacion",height = "400px",
+              tabBox(title = "Desagregacion",height = "500px",
                      tabPanel("gra21", "Departamento", 
                               plotOutput("plot21", height = 250)),
                      tabPanel("gra22", "Area", 
                               plotOutput("plot22", height = 250)),
                      tabPanel("gra23", "Sexo", 
-                              plotOutput("plot23", height = 250))))
+                              plotOutput("plot23", height = 250)))),
+            fluidRow(
+              box(title = "Departamento", width = 4, background = "orange",
+                  "Se muestra la proporcion de jovenes que no estudian ni trabajan por departamento, en donde Beni es el departamento con un mayor porcentaje de ninis(17.6%)"),
+              box(title = "Area", width = 4, background = "maroon",
+                  "Si lo desagragamos por area vemos que el area Rural tiene un mayor porcentaje de ninis(15.3%)"),
+              box(title = "Sexo", width = 4, background = "blue",
+                  "El porcentaje es mucho mas alto para las mujeres(15.23%) que para los hombres(6%)")
+            )
     ),
     tabItem(tabName = "ind22",
             includeCSS("Ficha2.html")),
@@ -125,7 +133,13 @@ body=dashboardBody(
                      tabPanel("gra61", "Departamento", 
                               plotOutput("plot61", height = 250)),
                      tabPanel("gra62", "Area", 
-                              plotOutput("plot62", height = 250))))
+                              plotOutput("plot62", height = 250)))),
+            fluidRow(
+              box(title = "Departamento", width = 6, background = "blue",
+                  "La brecha de ingresos entre hombres y mujeres, favorecen al genero masculino en todos los departamentos"),
+              box(title = "Area", width = 6, background = "green",
+                  "De la misma forma se da si lo desagregamos por area en donde la diferencia de ingresos es mas notorio para el area rural")
+            )
     ),
     tabItem(tabName = "ind62",
             includeCSS("Ficha3.html")),
