@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Tue Jun 13 13:58:21 BOT 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0188-b5e8-9f27-000013e1ca30 
-on database directory memory:C:\Users\Usuario\Desktop\h\ShinyDashboardGrupo\databaseName=metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@4be09402 
+Tue Jun 13 14:42:00 BOT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0188-b610-9801-0000123a8e00 
+on database directory memory:C:\Users\Usuario\Desktop\h\ShinyDashboardGrupo\databaseName=metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@4bee7807 
 Loaded from file:/C:/Users/Usuario/AppData/Local/spark/spark-3.3.2-bin-hadoop2/jars/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_371-b11
