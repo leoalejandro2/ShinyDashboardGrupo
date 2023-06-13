@@ -88,7 +88,16 @@ body=dashboardBody(
                      tabPanel("gra12", "Area", 
                               plotOutput("plot12", height = 250)),
                      tabPanel("gra13", "Sexo", 
-                              plotOutput("plot13", height = 250))))
+                              plotOutput("plot13", height = 250)))),
+            fluidRow(
+              box(title = "Departamento", width = 4, background = "purple",
+                  "La tasa de desempleo abierto es la proporcion de la poblacion activa que no trabajo ni una hora y que busco activamente un empleo asalariado o una actividad por cuenta propia.
+      La Paz es el departamento con una mayor tasa de desempleo en comparacion con el resto de departamentos"),
+              box(title = "Area", width = 4, background = "yellow",
+                  "Si lo desagregamos por area el area urbana tiene una mayor tasa de desempleo abierta en comparacion con el area rural"),
+              box(title = "Sexo", width = 4, background = "red",
+                  "Por sexo las mujeres tienen una mayor tasa de desempleo abierto en comparacion con los hombres")
+            )
     ),
     tabItem(tabName = "ind12",
             includeCSS("Ficha1.html")),
