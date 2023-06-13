@@ -38,6 +38,8 @@ El ingreso laboral puede ser usado para elaborar indicadores como "La Tasa Globa
 - pei: Poblacion Economicamente Inactiva, medida booleana : 1 = sí, 0 = no (discreta).
 - s01a_02: El sexo de la persona encuestada, 1 = Hombre, 2 = Mujer (discreta).
 - s01a_03: Cuantos años cumplidos tiene la persona encuestada (discreta).
+- aspirante: Poblacion Desocupada Aspirante, medida booleana : 1 = sí, 0 = no (discreta).
+- cesante: Poblacion Desocupada Cesante, medida booleana : 1 = sí, 0 = no (discreta).
 
 ## METODOLOGIA
 
