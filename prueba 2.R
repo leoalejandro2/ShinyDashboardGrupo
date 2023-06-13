@@ -16,7 +16,8 @@ eh21p$nini[is.na(eh21p$nini)]=FALSE
 
 eh21p %>% filter(s01a_03>=14,s01a_03<=24) %>% group_by(depto) %>% summarise(ninis=mean(nini)*100)
 
-
+eh21p=eh21p %>% 
+  mutate(hrsSem=(s04b_16aa*s04b_15),subocupado=hrsSem<=40)
 
 
 header=dashboardHeader(title = "Dashboard Proyecto")
@@ -60,7 +61,7 @@ sidebar=dashboardSidebar(
              menuSubItem("Reportes",tabName = "ind91"),
              menuSubItem("Ficha del indicador",tabName = "ind92")
     ),
-    menuItem("Tasa de desocupacion",tabName = "ind10",icon = icon("android"),
+    menuItem("Tasa de Subempleo",tabName = "ind10",icon = icon("android"),
              menuSubItem("Reportes",tabName = "ind101"),
              menuSubItem("Ficha del indicador",tabName = "ind102")
     )
@@ -342,7 +343,7 @@ body=dashboardBody(
     
     ####################indicador 10#################################
     tabItem(tabName = "ind101",
-            h2("TASA DE DESOCUPACION"),
+            h2("TASA DE SUBEMPLEO"),
             fluidRow(
               tabBox(title = "Desagregacion",height = "400px",
                      tabPanel("Tab101", "Departamento", 
@@ -357,10 +358,18 @@ body=dashboardBody(
                      tabPanel("gra102", "Area", 
                               plotOutput("plot102", height = 250)),
                      tabPanel("gra103", "Sexo", 
-                              plotOutput("plot103", height = 250))))
+                              plotOutput("plot103", height = 250)))),
+            fluidRow(
+              box(title = "Departamento", width = 4, background = "orange",
+                  "Potosi es el departamento con la tasa  de subempleo mas alta y el departamento con menor tasa es Santa Cruz"),
+              box(title = "Area", width = 4, background = "maroon",
+                  "El area rural presenta una tasa mas alta de subempleo en comparacion al area urbana"),
+              box(title = "Sexo", width = 4, background = "blue",
+                  "Las mujeres presenta una tasa mas alta de subempleo en comparacion que los hombres")
+            )
     ),
     tabItem(tabName = "ind102",
-            includeCSS("FichaDesocupado.html"))
+            includeCSS("Ficha10.html"))
   )
 )
 
@@ -761,44 +770,45 @@ server <- function(input, output) {
   ######################Indicador 10###########################
   output$tabp101=renderTable({
     
-    d10=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
-      summarise(td=sum(desocupado)/sum(pea)*100)
+    d10=eh21p %>% filter(s01a_03>=14&ocupado==1) %>% group_by(depto) %>% 
+      summarise(ts=sum(subocupado,na.rm=TRUE)/sum(pea)*100) 
     d10$depto=factor(d10$depto,c(1:9),unique(to_factor(d10$depto)))
     cbind(nro=1:9,d10)
   })
   
   output$tabp102=renderTable({
-    d10=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
-      summarise(td=sum(desocupado)/sum(pea)*100)
+    d10=eh21p %>%filter(s01a_03>=14&ocupado==1) %>% group_by(area) %>% 
+      summarise(ts=sum(subocupado,na.rm=TRUE)/sum(pea)*100) 
     d10$area=factor(d10$area,c(1:2),unique(to_factor(d10$area)))
     cbind(nro=1:2,d10)
   })
   
   output$tabp103=renderTable({
-    d10=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>% 
-      summarise(td=sum(desocupado)/sum(pea)*100)
+    d10=eh21p %>%filter(s01a_03>=14&ocupado==1) %>% group_by(s01a_02) %>% 
+      summarise(ts=sum(subocupado,na.rm=TRUE)/sum(pea)*100) 
     d10$s01a_02=factor(d10$s01a_02,c(1:2),unique(to_factor(d10$s01a_02)))
     cbind(nro=1:2,d10)
   })
   
   
   output$plot101=renderPlot({
-    d10=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
-      summarise(td=sum(desocupado)/sum(pea)*100)
-    
-    barplot(height=d10$td, name=d10$depto,col=c("snow","red4","skyblue1","red1","red3","firebrick3","seagreen2","seagreen3","seagreen4"))
+    d10=eh21p %>% filter(s01a_03>=14&ocupado==1) %>% group_by(depto) %>% 
+      summarise(ts=sum(subocupado,na.rm=TRUE)/sum(pea)*100) 
+    barplot(height=d10$ts, name=d10$depto ,col=c("snow","red4","skyblue1","red1","red3","firebrick3","seagreen2","seagreen3","seagreen4")
+    )
   })
   output$plot102=renderPlot({
-    d10=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
-      summarise(td=sum(desocupado)/sum(pea)*100)
+    d10=eh21p %>% filter(s01a_03>=14&ocupado==1) %>% group_by(area) %>%
+      summarise(ts=sum(subocupado,na.rm=TRUE)/sum(pea)*100) 
     
-    barplot(height=d10$td, name=d10$area)
+    
+    barplot(height=d10$ts, name=d10$area,col=c("cadetblue4","cadetblue1"))
   })
   output$plot103=renderPlot({
-    d10=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>% 
-      summarise(td=sum(desocupado)/sum(pea)*100)
+    d10=eh21p %>% filter(s01a_03>=14&ocupado==1) %>% group_by(s01a_02) %>%
+      summarise(ts=sum(subocupado,na.rm=TRUE)/sum(pea)*100) 
     
-    barplot(height=d10$td, name=d10$s01a_02)
+    barplot(height=d10$ts, name=d10$s01a_02,col=c("blue","pink"))
   })
 }
 
