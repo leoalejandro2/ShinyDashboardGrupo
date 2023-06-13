@@ -48,15 +48,15 @@ sidebar=dashboardSidebar(
              menuSubItem("Reportes",tabName = "ind51"),
              menuSubItem("Ficha del indicador",tabName = "ind52")
     ),
-    menuItem("Tasa de cesantia",tabName = "ind7",icon = icon("android"),
+    menuItem("Tasa de Cesantia",tabName = "ind7",icon = icon("android"),
              menuSubItem("Reportes",tabName = "ind71"),
              menuSubItem("Ficha del indicador",tabName = "ind72")
     ),
-    menuItem("Tasa de aspirantes",tabName = "ind8",icon = icon("android"),
+    menuItem("Tasa de Aspirantes",tabName = "ind8",icon = icon("android"),
              menuSubItem("Reportes",tabName = "ind81"),
              menuSubItem("Ficha del indicador",tabName = "ind82")
     ),
-    menuItem("Tasa de inactividad",tabName = "ind9",icon = icon("android"),
+    menuItem("Tasa de Inactividad",tabName = "ind9",icon = icon("android"),
              menuSubItem("Reportes",tabName = "ind91"),
              menuSubItem("Ficha del indicador",tabName = "ind92")
     ),
@@ -160,15 +160,11 @@ body=dashboardBody(
             fluidRow(
               tabBox(title = "Desagregacion",height = "400px",
                      tabPanel("Tab31", "Departamento", 
-                              tableOutput("tabp31"),"La tasa global de participación laboral 
-                              muestra el porcentaje de las personas que trabajan o buscan 
-                              activamente un trabajo sobre el total de la población en edad de trabajar (14 años y más).
-                              En este caso el departamento de Potosí es el que presenta la mayor tasa de particpacion global
-                              y Pando el que menos"),
+                              tableOutput("tabp31")),
                      tabPanel("Tab32", "Area", 
-                              tableOutput("tabp32"), "El area rural presenta una tasa de participacion global superior a la urbana."),
+                              tableOutput("tabp32")),
                      tabPanel("Tab33", "Sexo", 
-                              tableOutput("tabp33"),"El genero masculino tiene una tasa de participacion global mayor al genero femenino.")),
+                              tableOutput("tabp33"))),
               tabBox(title = "Desagregacion",height = "400px",
                      tabPanel("gra31", "Departamento", 
                               plotOutput("plot31", height = 250)),
@@ -178,11 +174,15 @@ body=dashboardBody(
                               plotOutput("plot33", height = 250)))),
             fluidRow(
               box(title = "Departamento", width = 4, background = "orange",
-                  "Se puede observar que la tasa de cesantia no supera el 7% para ningun departamento donde los departamentos con una mayor incidencia para este indicador son Chuquisaca y La Paz, además el departamento con menor tasa de cesantía es Potosí"),
+                  "La tasa global de participación laboral 
+                              muestra el porcentaje de las personas que trabajan o buscan 
+                              activamente un trabajo sobre el total de la población en edad de trabajar (14 años y más).
+                              En este caso el departamento de Potosí es el que presenta la mayor tasa de particpacion global
+                              y Pando el que menos"),
               box(title = "Area", width = 4, background = "maroon",
-                  "Se puede observar que la tasa de cesantia es más elevada en el área urbana"),
+                  "El area rural presenta una tasa de participacion global superior a la urbana."),
               box(title = "Sexo", width = 4, background = "blue",
-                  "Se puede observar que la tasa de cesantia en más elevada para las mujeres")
+                  "El genero masculino tiene una tasa de participacion global mayor al genero femenino.")
             )
     ),
     tabItem(tabName = "ind32",
@@ -193,22 +193,29 @@ body=dashboardBody(
             fluidRow(
               tabBox(title = "Desagregacion",height = "400px",
                      tabPanel("Tab41", "Departamento", 
-                              tableOutput("tabp41"),"La tasa de ocupación laboral es un ratio empleado para calcular qué 
-                              porcentaje de la población se encuentra trabajando activamente con respecto al total de la 
-                              población en edad de trabajar (PET) (14 años y más). A nivel departamental se evidencia una 
-                              tendencia mayor en Potosí 
-                              y La Paz el que menos"),
+                              tableOutput("tabp41")),
                      tabPanel("Tab12", "Area", 
-                              tableOutput("tabp42"), "El area rural presenta una tasa de ocupacion superior a la urbana."),
+                              tableOutput("tabp42")),
                      tabPanel("Tab43", "Sexo", 
-                              tableOutput("tabp43"),"Los hombres tienen una tasa de ocupacion mayor a las mujeres.")),
+                              tableOutput("tabp43"))),
               tabBox(title = "Desagregacion",height = "400px",
                      tabPanel("gra41", "Departamento", 
                               plotOutput("plot41", height = 250)),
                      tabPanel("gra42", "Area", 
                               plotOutput("plot42", height = 250)),
                      tabPanel("gra43", "Sexo", 
-                              plotOutput("plot43", height = 250))))
+                              plotOutput("plot43", height = 250)))),fluidRow(
+                                box(title = "Departamento", width = 4, background = "orange",
+                                    "La tasa de ocupación laboral es un ratio empleado para calcular qué 
+                              porcentaje de la población se encuentra trabajando activamente con respecto al total de la 
+                              población en edad de trabajar (PET) (14 años y más). A nivel departamental se evidencia una 
+                              tendencia mayor en Potosí 
+                              y La Paz el que menos"),
+                                box(title = "Area", width = 4, background = "maroon",
+                                    "El area rural presenta una tasa de ocupacion superior a la urbana."),
+                                box(title = "Sexo", width = 4, background = "blue",
+                                    "Los hombres tienen una tasa de ocupacion mayor a las mujeres.")
+                              )
     ),
     tabItem(tabName = "ind42",
             includeCSS("FichaOcup.html")),
@@ -218,19 +225,27 @@ body=dashboardBody(
             fluidRow(
               tabBox(title = "Desagregacion",height = "400px",
                      tabPanel("Tab51", "Departamento", 
-                              tableOutput("tabp51"),"El indice de carga economica más alto lo presenta el departamento de Beni
-                              y el que presenta un indice menor es Potosí."),
+                              tableOutput("tabp51")),
                      tabPanel("Tab52", "Area", 
-                              tableOutput("tabp52"),"El area urbana presenta un indice de carga economica superior a la rural."),
+                              tableOutput("tabp52")),
                      tabPanel("Tab53", "Sexo", 
-                              tableOutput("tabp53"),"Las mujeres tienen un indice de carga economica superior a los hombres.")),
+                              tableOutput("tabp53"))),
               tabBox(title = "Desagregacion",height = "400px",
                      tabPanel("gra51", "Departamento", 
                               plotOutput("plot51", height = 250)),
                      tabPanel("gra52", "Area", 
                               plotOutput("plot52", height = 250)),
                      tabPanel("gra53", "Sexo", 
-                              plotOutput("plot53", height = 250))))
+                              plotOutput("plot53", height = 250)))),
+            fluidRow(
+              box(title = "Departamento", width = 4, background = "orange",
+                  "El indice de carga economica más alto lo presenta el departamento de Beni
+                              y el que presenta un indice menor es Potosí." ),
+              box(title = "Area", width = 4, background = "maroon",
+                  "El area urbana presenta un indice de carga economica superior a la rural."),
+              box(title = "Sexo", width = 4, background = "blue",
+                  "Las mujeres tienen un indice de carga economica superior a los hombres.")
+            )
     ),
     tabItem(tabName = "ind52",
             includeCSS("FichaIce.html")),
@@ -252,7 +267,15 @@ body=dashboardBody(
                      tabPanel("gra72", "Area", 
                               plotOutput("plot72", height = 250)),
                      tabPanel("gra73", "Sexo", 
-                              plotOutput("plot73", height = 250))))
+                              plotOutput("plot73", height = 250)))),
+            fluidRow(
+              box(title = "Departamento", width = 4, background = "orange",
+                  "Se puede observar que la tasa de cesantia no supera el 7% para ningun departamento donde los departamentos con una mayor incidencia para este indicador son Chuquisaca y La Paz, además el departamento con menor tasa de cesantía es Potosí"),
+              box(title = "Area", width = 4, background = "maroon",
+                  "Se puede observar que la tasa de cesantia es más elevada en el área urbana"),
+              box(title = "Sexo", width = 4, background = "blue",
+                  "Se puede observar que la tasa de cesantia en más elevada para las mujeres")
+            )
     ),
     tabItem(tabName = "ind72",
             includeCSS("FichaTasaCesantia.html")),
@@ -373,19 +396,19 @@ server <- function(input, output) {
     d1=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
       summarise(td=sum(desocupado)/sum(pea)*100)
     
-    barplot(height=d1$td, name=d1$depto)
+    barplot(height=d1$td, name=d1$depto,col=c("snow","red4","skyblue1","red1","red3","firebrick3","seagreen2","seagreen3","seagreen4"))
   })
   output$plot12=renderPlot({
     d1=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
       summarise(td=sum(desocupado)/sum(pea)*100)
     
-    barplot(height=d1$td, name=d1$area)
+    barplot(height=d1$td, name=d1$area,col=c("cadetblue4","cadetblue1"))
   })
   output$plot13=renderPlot({
     d1=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>% 
       summarise(td=sum(desocupado)/sum(pea)*100)
     
-    barplot(height=d1$td, name=d1$s01a_02)
+    barplot(height=d1$td, name=d1$s01a_02,col=c("blue","pink"))
   })
   ######################Indicador 2###########################
   output$tabp21=renderTable({
@@ -415,19 +438,19 @@ server <- function(input, output) {
     d1=eh21p %>% filter(s01a_03>=14,s01a_03<=24) %>% 
       group_by(depto) %>% summarise(ninis=round(mean(nini)*100,2))
     
-    barplot(height=d1$ninis, name=d1$depto)
+    barplot(height=d1$ninis, name=d1$depto,col=c("snow","red4","skyblue1","red1","red3","firebrick3","seagreen2","seagreen3","seagreen4"))
   })
   output$plot22=renderPlot({
     d1=eh21p %>% filter(s01a_03>=14,s01a_03<=24) %>% 
       group_by(area) %>% summarise(ninis=round(mean(nini)*100,2))
     
-    barplot(height=d1$ninis, name=d1$area)
+    barplot(height=d1$ninis, name=d1$area,col=c("cadetblue4","cadetblue1"))
   })
   output$plot23=renderPlot({
     d1=eh21p %>% filter(s01a_03>=14,s01a_03<=24) %>% 
       group_by(s01a_02) %>% summarise(ninis=round(mean(nini)*100,2))
     
-    barplot(height=d1$ninis, name=d1$s01a_02)
+    barplot(height=d1$ninis, name=d1$s01a_02,col=c("blue","pink"))
   })
   
   ######################Indicador 6###########################
@@ -464,7 +487,7 @@ server <- function(input, output) {
     
     d2=cbind(nro=as.numeric(m$depto),h %>% select(depto),bi=h$t/m$t)
     
-    barplot(height=d2$bi, name=d2$nro)
+    barplot(height=d2$bi, name=d2$nro,col=c("snow","red4","skyblue1","red1","red3","firebrick3","seagreen2","seagreen3","seagreen4"))
   })
   output$plot62=renderPlot({
     aux=eh21p %>% filter(s01a_03>=25 & s01a_03<=60, s04a_01==1 | s04a_02!=8 | s04a_03 !=11) %>% 
@@ -475,7 +498,7 @@ server <- function(input, output) {
     h$area=factor(h$area,c(1:2),unique(to_factor(h$area)))
     
     d2=cbind(nro=as.numeric(m$area),h %>% select(area),bi=h$t/m$t)
-    barplot(height=d2$bi, name=d2$nro)
+    barplot(height=d2$bi, name=d2$nro,col=c("cadetblue4","cadetblue1"))
   })
   
   ######################Indicador 3########################### 
@@ -506,19 +529,19 @@ server <- function(input, output) {
     d1=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
       summarise(tgp=sum(pea)/sum(pet)*100)
     
-    barplot(height=d1$tgp, name=d1$depto)
+    barplot(height=d1$tgp, name=d1$depto,col=c("snow","red4","skyblue1","red1","red3","firebrick3","seagreen2","seagreen3","seagreen4"))
   })
   output$plot32=renderPlot({
     d1=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
       summarise(tgp=sum(pea)/sum(pet)*100)
     
-    barplot(height=d1$tgp, name=d1$area)
+    barplot(height=d1$tgp, name=d1$area,col=c("cadetblue4","cadetblue1"))
   })
   output$plot33=renderPlot({
     d1=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>% 
       summarise(tgp=sum(pea)/sum(pet)*100)
     
-    barplot(height=d1$tgp, name=d1$s01a_02)
+    barplot(height=d1$tgp, name=d1$s01a_02,col=c("blue","pink"))
   })
   
   ######################Indicador 4########################### 
@@ -549,19 +572,19 @@ server <- function(input, output) {
     d1=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
       summarise(toc=sum(ocupado)/sum(pea)*100)
     
-    barplot(height=d1$toc, name=d1$depto)
+    barplot(height=d1$toc, name=d1$depto,col=c("snow","red4","skyblue1","red1","red3","firebrick3","seagreen2","seagreen3","seagreen4"))
   })
   output$plot42=renderPlot({
     d1=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
       summarise(toc=sum(ocupado)/sum(pea)*100)
     
-    barplot(height=d1$toc, name=d1$area)
+    barplot(height=d1$toc, name=d1$area,col=c("cadetblue4","cadetblue1"))
   })
   output$plot43=renderPlot({
     d1=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>% 
       summarise(toc=sum(ocupado)/sum(pea)*100)
     
-    barplot(height=d1$toc, name=d1$s01a_02)
+    barplot(height=d1$toc, name=d1$s01a_02,col=c("blue","pink"))
   })
   
   ######################Indicador 5########################### 
@@ -592,19 +615,19 @@ server <- function(input, output) {
     d1=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
       summarise(ice=sum(pei)/sum(pea)*100)
     
-    barplot(height=d1$ice, name=d1$depto)
+    barplot(height=d1$ice, name=d1$depto,col=c("snow","red4","skyblue1","red1","red3","firebrick3","seagreen2","seagreen3","seagreen4"))
   })
   output$plot52=renderPlot({
     d1=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
       summarise(ice=sum(pei)/sum(pea)*100)
     
-    barplot(height=d1$ice, name=d1$area)
+    barplot(height=d1$ice, name=d1$area,col=c("cadetblue4","cadetblue1"))
   })
-  output$plot43=renderPlot({
+  output$plot53=renderPlot({
     d1=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>% 
       summarise(ice=sum(pei)/sum(pea)*100)
     
-    barplot(height=d1$ice, name=d1$s01a_02)
+    barplot(height=d1$ice, name=d1$s01a_02,col=c("blue","pink"))
   })
   ######################Indicador 7###########################
   output$tabp71=renderTable({
@@ -634,19 +657,19 @@ server <- function(input, output) {
     d7=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
       summarise(tc=sum(cesante)/sum(pea)*100)
     
-    barplot(height=d7$tc, name=d7$depto)
+    barplot(height=d7$tc, name=d7$depto,col=c("snow","red4","skyblue1","red1","red3","firebrick3","seagreen2","seagreen3","seagreen4"))
   })
   output$plot72=renderPlot({
     d7=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
       summarise(tc=sum(cesante)/sum(pea)*100)
     
-    barplot(height=d7$tc, name=d7$area)
+    barplot(height=d7$tc, name=d7$area,col=c("cadetblue4","cadetblue1"))
   })
   output$plot73=renderPlot({
     d7=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>% 
       summarise(tc=sum(cesante)/sum(pea)*100)
     
-    barplot(height=d7$tc, name=d7$s01a_02)
+    barplot(height=d7$tc, name=d7$s01a_02,col=c("blue","pink"))
   }) 
   
   ######################Indicador 8###########################
@@ -677,19 +700,19 @@ server <- function(input, output) {
     d8=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
       summarise(ta=sum(aspirante)/sum(pea)*100)
     
-    barplot(height=d8$ta, name=d8$depto)
+    barplot(height=d8$ta, name=d8$depto,col=c("snow","red4","skyblue1","red1","red3","firebrick3","seagreen2","seagreen3","seagreen4"))
   })
   output$plot82=renderPlot({
     d8=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
       summarise(ta=sum(aspirante)/sum(pea)*100)
     
-    barplot(height=d8$ta, name=d8$area)
+    barplot(height=d8$ta, name=d8$area,col=c("cadetblue4","cadetblue1"))
   })
   output$plot83=renderPlot({
     d8=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>% 
       summarise(ta=sum(aspirante)/sum(pea)*100)
     
-    barplot(height=d8$ta, name=d8$s01a_02)
+    barplot(height=d8$ta, name=d8$s01a_02,col=c("blue","pink"))
   })
   
   ######################Indicador 9###########################
@@ -720,19 +743,19 @@ server <- function(input, output) {
     d9=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>%
       summarise(ti=sum(pei)/sum(pet)*100)
     
-    barplot(height=d9$ti, name=d9$depto)
+    barplot(height=d9$ti, name=d9$depto,col=c("snow","red4","skyblue1","red1","red3","firebrick3","seagreen2","seagreen3","seagreen4"))
   })
   output$plot92=renderPlot({
     d9=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>%
       summarise(ti=sum(pei)/sum(pet)*100)
     
-    barplot(height=d9$ti, name=d9$area)
+    barplot(height=d9$ti, name=d9$area,col=c("cadetblue4","cadetblue1"))
   })
   output$plot93=renderPlot({
     d9=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>%
       summarise(ti=sum(pei)/sum(pet)*100)
     
-    barplot(height=d9$ti, name=d9$s01a_02)
+    barplot(height=d9$ti, name=d9$s01a_02,col=c("blue","pink"))
   })
   
   ######################Indicador 10###########################
@@ -763,7 +786,7 @@ server <- function(input, output) {
     d10=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
       summarise(td=sum(desocupado)/sum(pea)*100)
     
-    barplot(height=d10$td, name=d10$depto)
+    barplot(height=d10$td, name=d10$depto,col=c("snow","red4","skyblue1","red1","red3","firebrick3","seagreen2","seagreen3","seagreen4"))
   })
   output$plot102=renderPlot({
     d10=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
