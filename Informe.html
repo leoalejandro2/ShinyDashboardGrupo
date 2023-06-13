@@ -382,8 +382,8 @@ Cardenas Soria - Sergio Colque</h4>
 
 
 <div style="page-break-after: always;"></div>
-<div id="introducción." class="section level2">
-<h2>INTRODUCCIÓN.</h2>
+<div id="introduccion." class="section level2">
+<h2>INTRODUCCION.</h2>
 <p>Las encuestas de hogares por muestreo constituyen una manera práctica
 de obtener datos actualizados sobre las condiciones y tendencias
 sociales, el comportamiento socioeconómico de los hogares, el acceso a
@@ -396,13 +396,13 @@ bienestar.<span class="citation">(CEPAL, 1979)</span></p>
 de la situacion laboral a traves de la encuesta hogares usando
 indicadores.</p>
 </div>
-<div id="motivación" class="section level2">
-<h2>MOTIVACIÓN</h2>
+<div id="motivacion" class="section level2">
+<h2>MOTIVACION</h2>
 <p>La motivación para realizar este proyecto es exponer la realidad en
 cuanto a la oferta y demanda laboral que existe en el país.</p>
 </div>
-<div id="marco-teórico" class="section level2">
-<h2>MARCO TEÓRICO</h2>
+<div id="marco-teorico" class="section level2">
+<h2>MARCO TEORICO</h2>
 <p>El ingreso laboral es el conjunto de partidas monetarias y en especie
 percibidas en forma regular por los hogares como unidad o por sus
 integrantes a título personal, a intervalos anuales o más frecuentes,
@@ -413,8 +413,8 @@ indicadores como “La Tasa Global de Participacion” por nombrar alguno.
 El indicador es el dato numérico, resultado de un proceso que cuantifica
 científicamente una característica de una muestra. <span class="citation">(Sabalain, 2009)</span></p>
 </div>
-<div id="descripción-de-la-base-de-datos" class="section level2">
-<h2>DESCRIPCIÓN DE LA BASE DE DATOS</h2>
+<div id="descripcion-de-la-base-de-datos" class="section level2">
+<h2>DESCRIPCION DE LA BASE DE DATOS</h2>
 <ul>
 <li>ylab: Ingreso laboral (Bs/Mes) (continua).</li>
 <li>desocupado: Población desocupada, medida booleana : 1 = sí, 0 = no
@@ -437,6 +437,57 @@ no (discreta).</li>
 <h2>METODOLOGIA</h2>
 <div id="indicadores-y-fichas-de-indicadores" class="section level3">
 <h3>1. Indicadores y fichas de Indicadores</h3>
+<div id="tasa-de-desempleo-abierto-tda" class="section level4">
+<h4>Tasa de desempleo abierto (TDA)</h4>
+<p>Definicion. Es el porcentaje de la población abiertamente
+desempleada, entre la población económicamente activa de 14 a 60 años.
+<span class="math display">\[TDA_{14-60}=\frac{PDA_{14-60}}{PEA_{14-60}}*100\]</span></p>
+<p><span class="math display">\[PEA_{14-16}=PO_{14-16}+PDA_{14-16}\]</span>
+<em>Donde:</em></p>
+<p><span class="math inline">\(TDA_{14-60}:\)</span> Tasa de desempleo
+abierto de la población entre 14 y 60 años.</p>
+<p><span class="math inline">\(PEA_{14-60}:\)</span> Población
+económicamente activa de 14 a 60 años de edad.</p>
+<p><span class="math inline">\(PDA_{14-60}:\)</span> Población
+desempleada abierta de 14 a 60 años de edad.</p>
+<p><span class="math inline">\(PO_{14-60}:\)</span> Población ocupada de
+14 a 60 años de edad.</p>
+</div>
+<div id="proporcion-de-jovenesentre-15-y-24-años-que-no-cursan-estudios-no-estan-empleados-ni-reciben-capacitacion" class="section level4">
+<h4>Proporcion de jovenes(entre 15 y 24 años) que no cursan estudios, no
+estan empleados ni reciben capacitacion</h4>
+<p>Definicion. Proporción de jóvenes entre 15 y 24 años que no tienen
+empleo ni han realizado estudios o formación (reglada o no reglada) en
+las últimas cuatro semanas respecto al total de jóvenes entre 15 y 24
+años. <span class="math display">\[PPNINI_{15-24}^t=\frac{PNINI_{15-24}^t}{P_{15-24}^t}*100\]</span>
+<em>Donde:</em></p>
+<p><span class="math inline">\(PNINI_{15-24}^t:\)</span> Población entre
+15 y 24 años que no tiene empleo ni ha realizado estudios o formación
+(reglada o no reglada) en las últimas cuatro semanas en el año <span class="math inline">\(t\)</span></p>
+<p><span class="math inline">\(P_{15-24}^t:\)</span> población entre 15
+y 24 años en el año <span class="math inline">\(t\)</span> teniendo en
+cuenta que cada una de estas poblaciones se calcula como la media
+aritmética de los cuatro trimestres del año.</p>
+</div>
+<div id="brecha-de-ingresos-por-mes-bi" class="section level4">
+<h4>Brecha de Ingresos por mes (BI)</h4>
+<p>Definicion. Es el ratio promedio entre el ingreso medio de los
+hombres sobre el ingreso medio de las mujeres por mes Las personas
+pertenecen a la poblacion ocupada y entre los 25 y 60 años. <span class="math display">\[B_Q=\frac{\sum^P_{j=1}I_{j,h}/P}{\sum^N_{i=1}I_{i,m}/N}\]</span>
+<em>Donde:</em></p>
+<p><span class="math inline">\(B_Q:\)</span> Brecha de ingresos reales
+por mes entre mujeres y hombres (ratio de ingreso promedio de mujeres
+entre hombres).</p>
+<p><span class="math inline">\(P:\)</span> Numero total de individuos
+hombres entre los 25 a 60 años de edad que pertenecen a la poblacion
+ocupada.</p>
+<p><span class="math inline">\(N:\)</span> Numero total de individuos
+mujeres entre los 25 y 60 aÃ±os de edad que pertenecen a la poblacion
+ocupada.</p>
+<p><span class="math inline">\(I_{j,h}:\)</span> Ingreso por mes del
+individuo j hombre.</p>
+<p>$I_{i,m}: $ Ingreso por mes del individuo i mujer.</p>
+</div>
 <div id="tasa-global-de-participación-tgp" class="section level4">
 <h4>Tasa Global de Participación (TGP)</h4>
 <p>Definición. Relación de la Población Económicamente Activa (PEA)
@@ -459,35 +510,8 @@ económicamente activa (14 o más años de edad)</li>
 edad de trabajar (14 o más años de edad)</li>
 </ul>
 </div>
-<div id="tasa-de-desocupación-td" class="section level4">
-<h4>Tasa de Desocupación (TD)</h4>
-<p>Definición. Relación porcentual de la Población Desocupada de (PD)
-respecto a la Población Económicamente Activa (PEA) que mide el
-desempeño del mercado laboral y la economía en su conjunto. Asimismo,
-mide la utilización de la mano de obra en el mercado laboral y el
-fracaso de encontrar un trabajo. Población Desocupada (PD) son las
-personas de 14 años o más que, en la semana de referencia: no estaban
-ocupadas, llevaron a cabo actividades de búsqueda de trabajo en las
-últimas cuatro (4) semanas y estaban disponibles para trabajar.
-Población Económicamente Activa (PEA) conjunto de personas de 14 años
-que, en la semana de referencia, estaban ocupadas o que estaban
-desocupadas, es decir, no estaban ocupadas, buscaban trabajo activamente
-y estaban disponibles para trabajar. Incluye también, como ocupados, a
-quienes durante la semana de referencia estuvieron temporalmente
-ausentes de su empleo por razones circunstanciales. Método de cálculo.
-<span class="math display">\[TD_{\geq 14}=\dfrac{Desocupado_{\geq
-14}}{PEA_{\geq 14}}*100\]</span> Donde:</p>
-<ul>
-<li><span class="math inline">\(TD_{\geq 14}\)</span> = Tasa de
-desocupación (para 14 o más años de edad)</li>
-<li><span class="math inline">\(Desocupado_{\geq 14}\)</span>= Población
-Desocupada (14 o más años de edad)</li>
-<li><span class="math inline">\(PEA_{\geq 14}\)</span>= Población
-económicamente activa (14 o más años de edad)</li>
-</ul>
-</div>
-<div id="tasa-de-ocupación-to" class="section level4">
-<h4>Tasa de Ocupación (TO)</h4>
+<div id="tasa-de-ocupacion-to" class="section level4">
+<h4>Tasa de Ocupacion (TO)</h4>
 <p>Definición. Relación porcentual de la Población ocupada de (PA)
 respecto a la Población Económicamente Activa (PEA) que mide el
 desempeño del mercado laboral y la economía en su conjunto. Población
@@ -503,15 +527,15 @@ circunstanciales. Método de cálculo. <span class="math display">\[TO_{\geq 14}
 14}}*100\]</span> Donde:</p>
 <ul>
 <li><span class="math inline">\(TO_{\geq 14}\)</span> = Tasa de
-ocupación (para 14 o más años de edad)</li>
+ocupacion (para 14 o más años de edad)</li>
 <li><span class="math inline">\(Ocupado_{\geq 14}\)</span>= Población
 ocupada (14 o más años de edad)</li>
 <li><span class="math inline">\(PEA_{\geq 14}\)</span>= Población
 económicamente activa (14 o más años de edad)</li>
 </ul>
 </div>
-<div id="tasa-de-censatía-tc" class="section level4">
-<h4>Tasa de Censatía (TC)</h4>
+<div id="tasa-de-censatia-tc" class="section level4">
+<h4>Tasa de Censatia (TC)</h4>
 <p>Definición. Relación porcentual de la Población Cesante de (Censate)
 respecto a la Población Económicamente Activa (PEA) que mide el
 desempeño del mercado laboral y la economía en su conjunto. Población
@@ -575,8 +599,8 @@ económicamente inactiva (14 o más años de edad)</li>
 edad de trabajar (14 o más años de edad)</li>
 </ul>
 </div>
-<div id="indice-de-carga-económica-ice" class="section level4">
-<h4>Indice de Carga Económica (ICE)</h4>
+<div id="indice-de-carga-economica-ice" class="section level4">
+<h4>Indice de Carga Economica (ICE)</h4>
 <p>Definición. Representa la carga económica que debe asimilar una
 persona económicamente activa en favor de una persona económicamente
 inactiva, es decir, la relación entre actividad y no actividad. Se mide
@@ -602,23 +626,48 @@ económicamente inactiva (14 o más años de edad)</li>
 económicamente activa (14 o más años de edad)</li>
 </ul>
 </div>
+<div id="tasa-de-subempleo" class="section level4">
+<h4>Tasa de subempleo</h4>
+<p>Definicion. Es el porcentaje de la población subempleada entre la
+población económicamente activa. La población subempleada está compuesta
+por el subempleo visible y el invisible. <span class="math display">\[TS_{&gt;=14}=\frac{PS_{&gt;=14}}{PO_{&gt;=14}}*100\]</span></p>
+<p><em>Donde:</em></p>
+<p><span class="math inline">\(TS_{&gt;=14}:\)</span> Tasa de subempleo
+para personas mayores a 14 años.</p>
+<p><span class="math inline">\(PS_{&gt;=14}:\)</span> Suma de la
+poblacion sun empleada para personas mayores a 14 años</p>
+<p><span class="math inline">\(PO_{&gt;=14}:\)</span> Numero de
+individuos que pertenecen a la poplacion ocupada para personas mayores a
+14 años.</p>
+</div>
 </div>
 <div id="tratamiento-sobre-la-base-de-datos" class="section level3">
 <h3>2. Tratamiento sobre la base de datos</h3>
-<p>Se usará la base de datos de la Encuesta Hogares 2021 del área de
+<p>Se usara la base de datos de la Encuesta Hogares 2021 del area de
 personas para poder obtener las variables necesarias y asi sacar los
 indicadores ya mencionados. La base de datos tiene que ser filtrada para
 los encuestados que tienen 14 años o más. Además que será desagregada
 por departamentos, área y sexo.</p>
 <p><strong>EH2021_p %&gt;% filter(s01a_03&gt;=14) %&gt;%
 group_by(depto)</strong></p>
+<p><strong>No se utilizo el diseno muestral</strong></p>
 </div>
-<div id="visualizacion-de-la-información" class="section level3">
-<h3>3. Visualizacion de la información</h3>
+<div id="visualizacion-de-la-informacion" class="section level3">
+<h3>3. Visualizacion de la informacion</h3>
+<p>Se utilizo la libreria “ggplot2” para la realizacion de los
+graficos.</p>
+<p>Los graficos y las tablas se encuentran en el dashboard.</p>
 </div>
 <div id="armado-de-la-plataforma" class="section level3">
 <h3>4. Armado de la plataforma</h3>
+<p>Se uso las librerias shiny y shinydashboard para el armado de la
+plataforma.</p>
 </div>
+</div>
+<div id="concluciones-y-recomendaciones" class="section level2">
+<h2>Concluciones y recomendaciones</h2>
+<p>Se pudo conoser a traves de indicadores y una plataforma interactiva
+caracteristicas de la situacion laboral</p>
 </div>
 <div id="referencias" class="section level2 unnumbered">
 <h2 class="unnumbered">Referencias</h2>
