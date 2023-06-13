@@ -1,0 +1,57 @@
+---
+title: "Ficha tecnica del Indicador"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Brecha de Ingresos por mes
+
+:::: {style="display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 10px;"}
+
+::: {}
+### 1. Definicion
+Es el ratio promedio entre el ingreso medio de los hombres sobre el ingreso medio de las mujeres  por mes Las personas pertenecen a la poblacion ocupada y entre los 25 y 60 años.
+
+### 2. Descripcion del indicador
+La brecha entre ingresos permite analizar cuanta es la disparidad o cuantas veces es mayor (cuantas veces menor) el ingreso monetario entre hombres y mujeres. 
+El indicador de brecha permite analizar las diferencias en remuneracion entre los sexos. El indicador es importante porque la evidencia empirica ha mostrado que las mujeres ganan menos que los hombres realizando el mismo tipo de trabajo. Por lo que cerrar las diferencias es necesario para eliminar las brechas de genero por un criterio de justicia.
+
+
+
+:::
+
+::: {}
+
+### 3. Formula de calculo
+
+$$B_Q=\frac{\sum^P_{j=1}I_{j,h}/P}{\sum^N_{i=1}I_{i,m}/N}$$
+*Donde:*
+
+$B_Q:$ Brecha de ingresos reales por mes entre mujeres y hombres (ratio de ingreso promedio de
+mujeres entre hombres).
+
+$P:$ Numero total de individuos hombres entre los 25 a 60 años de edad que pertenecen a la
+poblacion ocupada.
+
+$N:$ Numero total de individuos mujeres entre los 25 y 60 aÃ±os de edad que pertenecen a la
+poblacion ocupada.
+
+$I_{j,h}:$ Ingreso por mes del individuo j hombre.
+
+$I_{i,m}: $ Ingreso por mes del individuo i mujer.
+
+
+
+### 4. Unidad de medida
+Moneda en bolivianos por mes.
+
+
+### 5. Interpretacion del indicador
+Brecha de ingresos medio adquirido en bolivianos por mes de los hombres sobre las mujeres.
+
+:::
+
+::::

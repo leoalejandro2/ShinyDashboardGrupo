@@ -105,9 +105,9 @@ body=dashboardBody(
                               En este caso el departamento de Potosí es el que presenta la mayor tasa de particpacion global
                               y Pando el que menos"),
                      tabPanel("Tab32", "Area", 
-                              tableOutput("tabp32")), "El area rural presenta una tasa de participacion global superior a la urbana.",
+                              tableOutput("tabp32"), "El area rural presenta una tasa de participacion global superior a la urbana."),
                      tabPanel("Tab33", "Sexo", 
-                              tableOutput("tabp33")),"El genero masculino tiene una tasa de participacion global mayor al genero femenino."),
+                              tableOutput("tabp33"),"El genero masculino tiene una tasa de participacion global mayor al genero femenino.")),
               tabBox(title = "Desagregacion",height = "400px",
                      tabPanel("gra31", "Departamento", 
                               plotOutput("plot31", height = 250)),
@@ -163,8 +163,8 @@ body=dashboardBody(
                      tabPanel("gra53", "Sexo", 
                               plotOutput("plot53", height = 250))))
     ),
-    tabItem(tabName = "ind12",
-            includeCSS("FichaIce.html")),
+    tabItem(tabName = "ind52",
+            includeCSS("FichaIce.html"))
   )
 )
 
