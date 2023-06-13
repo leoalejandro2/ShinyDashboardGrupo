@@ -1,0 +1,12 @@
+---
+title: "Indice de Carga Economica"
+output: html_document
+---
+Definición. Representa la carga económica que debe asimilar una persona económicamente activa en favor de una persona económicamente inactiva, es decir, la relación entre actividad y no actividad. Se mide a través de la relación de la Población Económicamente Inactiva (PEI) y la Población Económicamente Activa (PEA). Población Económicamente inactiva (PEI) conjunto de personas con 14 años o más que al momento de la encuesta no han participado en el mercado laboral en la semana de referencia o, en otros términos, sin ocupación ni buscan activamente una ocupación. Población Económicamente Activa (PEA) conjunto de personas de 14 años que, en la semana de referencia, estaban ocupadas o que estaban desocupadas, es decir, no estaban ocupadas, buscaban trabajo activamente y estaban disponibles para trabajar. Incluye también, como ocupados, a quienes durante la semana de referencia estuvieron temporalmente ausentes de su empleo por razones circunstanciales.
+Método de cálculo.
+$$ICE_{\geq 14}=\dfrac{PEI_{\geq 14}}{PEA_{\geq 14}}*100$$
+Donde:
+
+- $ICE_{\geq 14}$= Índice de Carga Económica (para 14 o más años de edad)
+- $PEI_{\geq 14}$= Población económicamente inactiva (14 o más años de edad) 
+- $PEA_{\geq 14}$= Población económicamente activa (14 o más años de edad)

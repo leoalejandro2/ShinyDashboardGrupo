@@ -1,0 +1,12 @@
+---
+title: "Tasa de Ocupacion"
+output: html_document
+---
+Definición. Relación porcentual de la Población ocupada de (PA) respecto a la Población Económicamente Activa (PEA) que mide el desempeño del mercado laboral y la economía en su conjunto. Población Ocupada (ocupado) son las personas de 14 años o más que, en la semana de referencia: estaban ocupadas, llevaron a cabo actividades de trabajo en las últimas cuatro (4) semanas . Población Económicamente Activa (PEA) conjunto de personas de 14 años que, en la semana de referencia, estaban ocupadas o que estaban desocupadas, es decir, no estaban ocupadas, buscaban trabajo activamente y estaban disponibles para trabajar. Incluye también, como ocupados, a quienes durante la semana de referencia estuvieron temporalmente ausentes de su empleo por razones circunstanciales.
+Método de cálculo.
+$$TO_{\geq 14}=\dfrac{Ocupado_{\geq 14}}{PEA_{\geq 14}}*100$$
+Donde:
+
+- $TO_{\geq 14}$ = Tasa de ocupación  (para 14 o más años de edad)
+- $Ocupado_{\geq 14}$= Población ocupada (14 o más años de edad) 
+- $PEA_{\geq 14}$= Población económicamente activa (14 o más años de edad)

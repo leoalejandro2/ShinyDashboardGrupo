@@ -1,0 +1,15 @@
+---
+title: "Tasa Global de Participacion"
+author: "Alejandro Cardenas Soria"
+date: "2023-06-13"
+output: html_document
+---
+
+Definición. Relación de la Población Económicamente Activa (PEA) entre la Población en Edad de Trabajar (PET) que mide la proporción de participación en el mercado laboral respecto al total de población que se encuentra en edad de trabajo. Población Económicamente Activa (PEA) conjunto de personas de 14 años que, en la semana de referencia, estaban ocupadas o que estaban desocupadas, es decir, no estaban ocupadas, buscaban trabajo activamente y estaban disponibles para trabajar. Incluye también, como ocupados, a quienes durante la semana de referencia estuvieron temporalmente ausentes de su empleo por razones circunstanciales.
+Método de cálculo.
+$$TGP_{\geq 14}=\dfrac{PEA_{\geq 14}}{PET_{\geq 14}}*100$$
+Donde:
+
+- $TGP_{\geq 14}$ = Tasa global de participación (para 14 o más años de edad)
+- $PEA_{\geq 14}$= Población económicamente activa (14 o más años de edad)
+- $PET_{\geq 14}$= Población en edad de trabajar (14 o más años de edad)
