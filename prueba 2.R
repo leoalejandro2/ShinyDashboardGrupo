@@ -6,6 +6,7 @@ library(ggplot2)
 library(haven)
 library(labelled)
 library(sparklyr)
+install.packages("devtools")
 
 load("Data/EH2021.RData")
 
@@ -165,7 +166,15 @@ body=dashboardBody(
                      tabPanel("gra32", "Area", 
                               plotOutput("plot32", height = 250)),
                      tabPanel("gra33", "Sexo", 
-                              plotOutput("plot33", height = 250))))
+                              plotOutput("plot33", height = 250)))),
+            fluidRow(
+              box(title = "Departamento", width = 4, background = "orange",
+                  "Se puede observar que la tasa de cesantia no supera el 7% para ningun departamento donde los departamentos con una mayor incidencia para este indicador son Chuquisaca y La Paz, además el departamento con menor tasa de cesantía es Potosí"),
+              box(title = "Area", width = 4, background = "maroon",
+                  "Se puede observar que la tasa de cesantia es más elevada en el área urbana"),
+              box(title = "Sexo", width = 4, background = "blue",
+                  "Se puede observar que la tasa de cesantia en más elevada para las mujeres")
+            )
     ),
     tabItem(tabName = "ind32",
             includeCSS("FichaTGP.html")),
@@ -256,7 +265,15 @@ body=dashboardBody(
                      tabPanel("gra82", "Area", 
                               plotOutput("plot82", height = 250)),
                      tabPanel("gra83", "Sexo", 
-                              plotOutput("plot83", height = 250))))
+                              plotOutput("plot83", height = 250)))),
+            fluidRow(
+              box(title = "Departamento", width = 4, background = "orange",
+                  "Se puede observar que la tasa de aspirantes no es muy elevada en nuestro país donde todos los departamentos se encuentran debajo del 1%"),
+              box(title = "Area", width = 4, background = "maroon",
+                  "Se puede observar que la tasa de aspirantes es más elevada en el área urbana"),
+              box(title = "Sexo", width = 4, background = "blue",
+                  "Se puede observar que la tasa de aspirantes en más elevada para las mujeres")
+            )
     ),
     tabItem(tabName = "ind82",
             includeCSS("FichaTasaAspirantes.html")),
@@ -278,7 +295,15 @@ body=dashboardBody(
                      tabPanel("gra92", "Area", 
                               plotOutput("plot92", height = 250)),
                      tabPanel("gra93", "Sexo", 
-                              plotOutput("plot93", height = 250))))
+                              plotOutput("plot93", height = 250)))),
+            fluidRow(
+              box(title = "Departamento", width = 4, background = "orange",
+                  "Se puede observar que la tasa de inactividad ronda el 30% en nuestro país donde el más bajo es Potosí los más elevados son los departamentos de Pando, Beni y Oruro"),
+              box(title = "Area", width = 4, background = "maroon",
+                  "Se puede observar que la tasa de inactividad es más elevada en el área urbana"),
+              box(title = "Sexo", width = 4, background = "blue",
+                  "Se puede observar que la tasa de inactividad en más elevada para las mujeres")
+            )
     ),
     tabItem(tabName = "ind92",
             includeCSS("FichaTasaInactividad.html")),
@@ -600,19 +625,19 @@ server <- function(input, output) {
     d7=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
       summarise(tc=sum(cesante)/sum(pea)*100)
     
-    barplot(height=d7$td, name=d7$depto)
+    barplot(height=d7$tc, name=d7$depto)
   })
   output$plot72=renderPlot({
     d7=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
       summarise(tc=sum(cesante)/sum(pea)*100)
     
-    barplot(height=d7$td, name=d7$area)
+    barplot(height=d7$tc, name=d7$area)
   })
   output$plot73=renderPlot({
     d7=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>% 
       summarise(tc=sum(cesante)/sum(pea)*100)
     
-    barplot(height=d7$td, name=d7$s01a_02)
+    barplot(height=d7$tc, name=d7$s01a_02)
   }) 
   
   ######################Indicador 8###########################
@@ -643,19 +668,19 @@ server <- function(input, output) {
     d8=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>% 
       summarise(ta=sum(aspirante)/sum(pea)*100)
     
-    barplot(height=d8$td, name=d8$depto)
+    barplot(height=d8$ta, name=d8$depto)
   })
   output$plot82=renderPlot({
     d8=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>% 
       summarise(ta=sum(aspirante)/sum(pea)*100)
     
-    barplot(height=d8$td, name=d8$area)
+    barplot(height=d8$ta, name=d8$area)
   })
   output$plot83=renderPlot({
     d8=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>% 
       summarise(ta=sum(aspirante)/sum(pea)*100)
     
-    barplot(height=d8$td, name=d8$s01a_02)
+    barplot(height=d8$ta, name=d8$s01a_02)
   })
   
   ######################Indicador 9###########################
@@ -686,19 +711,19 @@ server <- function(input, output) {
     d9=eh21p %>% filter(s01a_03>=14) %>% group_by(depto) %>%
       summarise(ti=sum(pei)/sum(pet)*100)
     
-    barplot(height=d9$td, name=d9$depto)
+    barplot(height=d9$ti, name=d9$depto)
   })
   output$plot92=renderPlot({
     d9=eh21p %>% filter(s01a_03>=14) %>% group_by(area) %>%
       summarise(ti=sum(pei)/sum(pet)*100)
     
-    barplot(height=d9$td, name=d9$area)
+    barplot(height=d9$ti, name=d9$area)
   })
   output$plot93=renderPlot({
     d9=eh21p %>% filter(s01a_03>=14) %>% group_by(s01a_02) %>%
       summarise(ti=sum(pei)/sum(pet)*100)
     
-    barplot(height=d9$td, name=d9$s01a_02)
+    barplot(height=d9$ti, name=d9$s01a_02)
   })
   
   ######################Indicador 10###########################
